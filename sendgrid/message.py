@@ -3,7 +3,7 @@ import json
 
 from django.conf import settings
 from django.core import mail
-from django.core.mail.message import EmailMessage, EmailMultiAlternatives
+from django.core.mail.message import EmailMessage
 
 # django-sendgrid imports
 from header import SmtpApiHeader
@@ -14,7 +14,7 @@ from signals import sendgrid_email_sent
 logger = logging.getLogger(__name__)
 
 
-class SendGridEmailMessage(EmailMultiAlternatives):
+class SendGridEmailMessage(EmailMessage):
 	"""
 	Adapts Django's ``EmailMessage`` for use with SendGrid.
 	
